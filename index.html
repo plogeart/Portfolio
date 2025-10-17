@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio | Développeur</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-top">
+            <h1>Prénom Nom</h1>
+            <p>Développeur</p>
+        </div>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#a-propos">À propos</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="a-propos" class="about-section">
+        <h2>Qui suis-je ?</h2>
+        <div class="about-container">
+            <div class="carousel-container">
+                <button class="carousel-btn" onclick="changeCard(-1)">&#8592;</button>
+                <div class="carousel">
+                    <div class="card active">
+                        <h3>Passionné de sport</h3>
+                        <p>J’ai pratiqué la gymnastique pendant 13 ansde l'escalade 3 ans, et maintenant du volley ...</p>
+                    </div>
+                    <div class="card">
+                        <h3>Étudiant</h3>
+                        <p>Je suis en BUT Informatique (2ème année) à Nancy après avoir obtenu mon BAC à Troyes.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Projet professionnel</h3>
+                        <p>Je souhaite évoluer en informatique, notamment dans le développement et la gestion de projet.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Valeurs humaines</h3>
+                        <p>Je valorise l’écoute, le respect, l’entraide et l’efficacité dans mes projets et relations.</p>
+                    </div>
+                </div>
+                <button class="carousel-btn" onclick="changeCard(1)">&#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets">
+        <h2>Mes Projets</h2>
+        <div class="projets-grid">
+            
+            <div class="projet-card">
+                <img src="flutter.jpeg" alt="Capture d'écran de l'application">
+                <div class="projet-card-body">
+                    <h3>InstApp</h3>
+                    <p>Appli réalisé avec Flutter</p>
+                    <a href="URL_VERS_VOTRE_APK" class="btn-download" download>
+                        Télécharger l'APK (v1.0)
+                    </a>
+                </div>
+            </div>
+
+            <div class="projet-card">
+                <img src="image2.jpg" alt="Illustration du projet 2">
+                <div class="projet-card-body">
+                    <h3>Nom du Projet 2</h3>
+                    <p>Description du projet, par exemple un site web, un logiciel, ou un projet universitaire important.</p>
+                    <a href="#" class="btn-primary">Voir sur GitHub</a>
+                </div>
+            </div>
+            
+            <div class="projet-card">
+                <img src="image3.png" alt="Illustration du projet 3">
+                <div class="projet-card-body">
+                    <h3>Nom du Projet 3</h3>
+                    <p>Description d'un autre projet pertinent qui met en avant vos compétences techniques.</p>
+                    <a href="#" class="btn-primary">Voir le site</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-container">
+            <h2>Contactez-moi</h2>
+            <p>Envie d'échanger ou de collaborer ? N'hésitez pas !</p>
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Votre email" required>
+                </div>
+                <div class="input-group">
+                    <textarea name="message" placeholder="Votre message" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer-container">
+        <div class="footer-content">
+            <h2>Retrouvez-moi</h2>
+            <div class="social-links">
+                <a href="https://github.com/votreprofil" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/votreprofil" target="_blank">LinkedIn</a>
+                <a href="mailto:votre.email@example.com">Email</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
