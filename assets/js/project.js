@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- ANIMATION DES ÉLÉMENTS AU SCROLL ---
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 
-    // --- GALERIE D'IMAGES ET EFFET DE CHARGEMENT ---
     const mainImageContainer = document.querySelector('.main-image');
     const imageToLoad = document.getElementById('current-image');
     const imageThumbnails = document.querySelectorAll('.thumb');
@@ -39,10 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Lancer la vérification pour la première image au chargement
     handleImageLoad(imageToLoad);
 
-    // Ajout des listeners sur les miniatures
     imageThumbnails.forEach(thumb => {
         thumb.addEventListener('click', function() {
             imageToLoad.classList.remove('loaded');
@@ -56,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- ACCORDÉON FAQ DYNAMIQUE ---
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
