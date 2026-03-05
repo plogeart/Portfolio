@@ -1,0 +1,93 @@
+import React from 'react';
+import { 
+  Container, Box, Typography, Grid, Accordion, 
+  AccordionSummary, AccordionDetails, Button, Stack, Paper 
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+export default function ElegantPage() {
+  return (
+    // On garde ton souhait de 5% de vide sur les côtés
+    <Container maxWidth={false} sx={{ px: '5vw', py: 6 }}>
+      
+      {/* Utilisation de Stack pour espacer les 3 sections principales */}
+      <Stack spacing={8}>
+
+        {/* 1. SECTION TITRE (Hero) */}
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography variant="overline" sx={{ letterSpacing: 2, color: 'primary.main', fontWeight: 'bold' }}>
+            Bienvenue sur mon site
+          </Typography>
+          <Typography variant="h3" sx={{ fontWeight: 800, mt: 1, mb: 2 }}>
+            Une Vitrine Élégante
+          </Typography>
+          <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 600, mx: 'auto' }}>
+            Voici une structure simple, aérée et moderne utilisant uniquement Material UI.
+          </Typography>
+        </Box>
+
+        {/* 2. SECTION GRILLE (Tes services/items) */}
+        <Box>
+          <Grid container spacing={3}>
+            {[1, 2, 3].map((i) => (
+              <Grid item xs={12} md={4} key={i}>
+                <Paper 
+                  elevation={0} 
+                  sx={{ 
+                    p: 3, 
+                    textAlign: 'center', 
+                    border: '1px solid #eaeaea', 
+                    borderRadius: 4,
+                    '&:hover': { borderColor: 'primary.main', bgcolor: '#fafafa' } 
+                  }}
+                >
+                  <Typography variant="h6" sx={{ fontWeight: 700 }}>Service {i}</Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                    Une description courte qui va droit au but pour vos clients.
+                  </Typography>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
+        {/* 3. SECTION ACCORDÉONS (FAQ ou Détails) */}
+        <Box sx={{ maxWidth: 700, mx: 'auto', width: '100%' }}>
+          <Typography variant="h5" sx={{ mb: 3, fontWeight: 700, textAlign: 'center' }}>
+            En savoir plus
+          </Typography>
+          
+          <Accordion elevation={0} sx={{ borderBottom: '1px solid #eee', '&:before': { display: 'none' } }}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography sx={{ fontWeight: 600 }}>Comment ça marche ?</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography variant="body2" color="text.secondary">
+                Le contenu s'affiche ici de manière fluide. C'est parfait pour ne pas encombrer la page visuellement.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion elevation={0} sx={{ borderBottom: '1px solid #eee', '&:before': { display: 'none' } }}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <Typography sx={{ fontWeight: 600 }}>Est-ce responsive ?</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography variant="body2" color="text.secondary">
+                Oui, grâce à la Grid de MUI, les éléments s'empilent tout seuls sur mobile.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </Box>
+
+        {/* BOUTON DE CONTACT FINAL */}
+        <Box sx={{ textAlign: 'center' }}>
+          <Button variant="contained" size="large" sx={{ borderRadius: 10, px: 6, textTransform: 'none' }}>
+            Me Contacter
+          </Button>
+        </Box>
+
+      </Stack>
+    </Container>
+  );
+}
