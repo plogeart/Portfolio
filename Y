@@ -1,0 +1,26 @@
+import React, { useState, useEffect } from 'react';
+
+export default function SimplePage() {
+  const [count, setCount] = useState(0);
+
+  // Le useEffect se déclenche après chaque rendu
+  useEffect(() => {
+    document.title = `Clics : ${count}`;
+    
+    // Optionnel : une fonction de nettoyage (cleanup)
+    return () => console.log("Nettoyage avant le prochain effet");
+  }, [count]); // L'effet s'exécute seulement si 'count' change
+
+  return (
+    <div style={{ fontFamily: 'sans-serif', textAlign: 'center', marginTop: '50px' }}>
+      <h1>Mon Compteur React</h1>
+      <p>Regarde l'onglet de ton navigateur !</p>
+      <button 
+        onClick={() => setCount(count + 1)}
+        style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}
+      >
+        Incrémenter : {count}
+      </button>
+    </div>
+  );
+}
