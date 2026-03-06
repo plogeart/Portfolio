@@ -1,0 +1,151 @@
+import React from 'react';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Container,
+  Box,
+  Grid,
+  Card,
+  CardContent,
+  IconButton,
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+  Stack
+} from '@mui/material';
+import {
+  RocketLaunch,
+  Code,
+  AutoAwesome,
+  GitHub
+} from '@mui/icons-material';
+
+// --- 1. CRÉATION DU THÈME "TROP STYLÉ" ---
+// On part sur un dark mode profond avec des touches de couleurs néon/pastel
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#90caf9', // Bleu pastel
+    },
+    secondary: {
+      main: '#f48fb1', // Rose pastel
+    },
+    background: {
+      default: '#0a1929', // Bleu très foncé
+      paper: '#001e3c',   // Bleu foncé pour les cartes
+    },
+  },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    h2: {
+      fontWeight: 800,
+      letterSpacing: '-0.02em',
+    },
+  },
+  shape: {
+    borderRadius: 16, // Des bords bien arrondis pour un look moderne
+  },
+});
+
+export default function App() {
+  return (
+    <ThemeProvider theme={darkTheme}>
+      {/* CssBaseline applique les couleurs de fond du thème à toute la page */}
+      <CssBaseline />
+      
+      <Box sx={{ flexGrow: 1, minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        
+        {/* --- NAVBAR --- */}
+        <AppBar 
+          position="static" 
+          color="transparent" 
+          elevation={0} 
+          sx={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+        >
+          <Toolbar>
+            <AutoAwesome sx={{ mr: 2, color: 'primary.main' }} />
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
+              SuperDev
+            </Typography>
+            <Button color="inherit" sx={{ display: { xs: 'none', sm: 'block' } }}>Accueil</Button>
+            <Button color="inherit" sx={{ display: { xs: 'none', sm: 'block' } }}>Projets</Button>
+            <IconButton color="inherit" sx={{ ml: 1 }}>
+              <GitHub />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+
+        {/* --- HERO SECTION --- */}
+        <Container maxWidth="md" sx={{ mt: { xs: 8, md: 15 }, mb: { xs: 8, md: 15 }, textAlign: 'center', flexGrow: 1 }}>
+          <Typography
+            variant="h2"
+            component="h1"
+            gutterBottom
+            sx={{
+              // Effet de texte en dégradé stylé
+              background: 'linear-gradient(45deg, #90caf9 20%, #f48fb1 90%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Codez avec style.
+          </Typography>
+          <Typography variant="h5" color="text.secondary" paragraph sx={{ mb: 5, px: { xs: 2, md: 10 } }}>
+            Une landing page ultra-moderne construite avec 100% de composants Material-UI. Simple, élégante et complètement responsive.
+          </Typography>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
+            <Button 
+              variant="contained" 
+              color="primary" 
+              size="large" 
+              endIcon={<RocketLaunch />}
+              sx={{ px: 4, py: 1.5, fontWeight: 'bold' }}
+            >
+              Démarrer le projet
+            </Button>
+            <Button 
+              variant="outlined" 
+              color="secondary" 
+              size="large"
+              sx={{ px: 4, py: 1.5, borderWidth: 2, '&:hover': { borderWidth: 2 } }}
+            >
+              En savoir plus
+            </Button>
+          </Stack>
+        </Container>
+
+        {/* --- FEATURES SECTION --- */}
+        <Box sx={{ bgcolor: 'background.paper', py: { xs: 8, md: 12 } }}>
+          <Container maxWidth="lg">
+            <Grid container spacing={4}>
+              {[
+                { 
+                  title: 'Design Moderne', 
+                  icon: <AutoAwesome fontSize="large" color="primary"/>, 
+                  text: 'Un look épuré avec un mode sombre parfait et des effets de texte en dégradé.' 
+                },
+                { 
+                  title: '100% MUI', 
+                  icon: <Code fontSize="large" color="secondary"/>, 
+                  text: 'Utilisation exclusive des composants Material-UI pour un code maintenable.' 
+                },
+                { 
+                  title: 'Ultra Rapide', 
+                  icon: <RocketLaunch fontSize="large" color="primary"/>, 
+                  text: 'Optimisé pour la vitesse, complètement responsive sur mobile et desktop.' 
+                },
+              ].map((feature, index) => (
+                <Grid item xs={12} md={4} key={index}>
+                  <Card 
+                    elevation={0}
+                    sx={{ 
+                      height: '100%', 
+                      textAlign: 'center', 
+                      p: 3, 
+                      bgcolor: 'rgba(255, 255, 255, 0.02)', // Effet de fond très subtil
+                      border: '1px solid rgba(255,255,255,0.05)',
+                      transition: 'all 0.3s ease-in-out', 
+                      // Effet de hover
